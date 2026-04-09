@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aiaijungle.github.io/jungle-booking-aeo-landing/sitemap.xml
