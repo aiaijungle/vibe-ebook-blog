@@ -164,10 +164,12 @@ def main():
     os.makedirs(BLOG_DIR, exist_ok=True)
     today_str = datetime.now().strftime("%Y%m%d_%H%M")
     
-    # 바이브코딩 전용 키워드
+    # 바이브코딩 전용 키워드 (6개 핵심 + 보조)
     target_topics = [
-        "AI 코딩", "바이브코딩", "비개발자 코딩", "챗GPT 코딩", 
-        "코딩 부트캠프", "전자책 부업", "AI 자동화 시스템 구축"
+        "AI 에이전트", "바이브코딩", "클로드 코드", 
+        "클로드 코워크", "AI 자동화", "프롬프트 엔지니어링",
+        "비개발자 코딩", "챗GPT 코딩", "AI 코딩 전자책",
+        "1인 창업 AI", "n8n 자동화", "AI SaaS 구축"
     ]
     chosen_topic = random.choice(target_topics)
     print(f"[*] 오늘의 타겟팅 크롤링 주제: {chosen_topic}")
