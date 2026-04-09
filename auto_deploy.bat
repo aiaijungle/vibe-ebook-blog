@@ -3,7 +3,7 @@ setlocal EnableDelayedExpansion
 chcp 65001 > nul
 
 echo ====================================================
-echo   🚀 정글부킹 AEO 랜딩페이지 자동 배포 스크립트 🚀
+echo   🚀 바이브코딩 전자책 자동 배포 스크립트 🚀
 echo ====================================================
 echo.
 
@@ -23,7 +23,7 @@ echo [1/3] 변경 변경사항을 스캔합니다...
 git add .
 
 echo [2/3] 커밋을 생성합니다...
-git commit -m "Auto Deploy: 정글부킹 AEO 랜딩페이지 업데이트 (%date%)"
+git commit -m "Auto Deploy: 바이브코딩 전자책 블로그 업데이트 (%date%)"
 
 echo [3/3] Github Pages 서버로 배포(Push)를 시작합니다...
 git push -u origin main
@@ -37,7 +37,7 @@ if %errorlevel% neq 0 (
 
 echo.
 echo ====================================================
-echo   🎉 배포 완료!
-echo   Github Pages 설정(Settings) -^> Pages 메뉴 배포 현황을 확인하세요!
+echo   가치 입증의 시간이 왔습니다. 자동 배포 완료!
+echo   Github Pages 설정(Settings) -^> Pages 메뉴 설정을 확인하세요!
 echo ====================================================
 pause

@@ -28,7 +28,7 @@ def generate_and_deploy_blog():
     except Exception as e:
         print(f"오류 발생: {e}")
 
-print("⏰ [정글부킹 마케팅] 블로그 자동화 스케줄러 동작 중...")
+print("⏰ [전자책 마케팅] 블로그 자동화 스케줄러 동작 중...")
 print("이 창을 켜두시면 다음 정해진 시간에 블로그가 '자동 생성 + 배포' 됩니다.")
 print("목표 시간: 오전 09:00, 오후 12:00, 오후 15:00\n")
 
