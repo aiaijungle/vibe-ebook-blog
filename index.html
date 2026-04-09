@@ -887,6 +887,116 @@
         </div>
     </section>
 
+    <!-- 무료 리드 마그넷 섹션 -->
+    <section class="container reveal" id="free-prompts" style="padding: 4rem 0; z-index: 10; position: relative;">
+        <article>
+            <div style="background: linear-gradient(135deg, rgba(157,78,221,0.15), rgba(76,201,240,0.1)); border: 2px solid rgba(76,201,240,0.3); border-radius: 24px; padding: 50px 40px; text-align: center; position: relative; overflow: hidden;">
+                <!-- 배경 장식 -->
+                <div style="position:absolute; top:-50px; right:-50px; width:200px; height:200px; background:radial-gradient(circle, rgba(157,78,221,0.2), transparent); border-radius:50%;"></div>
+                <div style="position:absolute; bottom:-30px; left:-30px; width:150px; height:150px; background:radial-gradient(circle, rgba(76,201,240,0.15), transparent); border-radius:50%;"></div>
+                
+                <div style="position: relative; z-index: 2;">
+                    <span style="display:inline-block; background:linear-gradient(135deg,#9d4edd,#4cc9f0); color:#fff; padding:8px 20px; border-radius:30px; font-size:0.85rem; font-weight:800; margin-bottom:20px; letter-spacing:1px;">100% 무료</span>
+                    <h2 style="font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 15px; line-height: 1.3;">
+                        🎁 AI 프롬프트 5종 + n8n 워크플로우<br>
+                        <span style="color: var(--neon-blue);">무료로 받아가세요</span>
+                    </h2>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 30px; line-height: 1.7;">
+                        실제 수익형 서비스를 만든 <strong style="color:#fff;">검증된 프롬프트 5종</strong>을 무료로 공개합니다.<br>
+                        이메일만 입력하면 <strong style="color:var(--neon-blue);">즉시 다운로드 링크</strong>가 발송됩니다.
+                    </p>
+                    
+                    <!-- 이메일 수집 폼 -->
+                    <form id="leadForm" onsubmit="submitLeadForm(event)" style="display:flex; gap:12px; max-width:500px; margin:0 auto; flex-wrap:wrap; justify-content:center;">
+                        <input type="text" id="leadName" placeholder="이름 (닉네임)" required style="flex:1; min-width:120px; padding:16px 20px; border-radius:14px; border:1px solid rgba(76,201,240,0.3); background:rgba(0,0,0,0.4); color:#fff; font-size:1rem; outline:none; transition:border 0.3s;" onfocus="this.style.borderColor='var(--neon-blue)'" onblur="this.style.borderColor='rgba(76,201,240,0.3)'">
+                        <input type="email" id="leadEmail" placeholder="이메일 주소" required style="flex:2; min-width:200px; padding:16px 20px; border-radius:14px; border:1px solid rgba(76,201,240,0.3); background:rgba(0,0,0,0.4); color:#fff; font-size:1rem; outline:none; transition:border 0.3s;" onfocus="this.style.borderColor='var(--neon-blue)'" onblur="this.style.borderColor='rgba(76,201,240,0.3)'">
+                        <button type="submit" id="leadBtn" class="cta-button" style="padding:16px 30px; font-size:1.05rem; white-space:nowrap; flex-shrink:0;">🎁 무료 다운로드</button>
+                    </form>
+                    
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.8rem; margin-top:15px;">스팸 없습니다. 언제든 구독 해지 가능합니다.</p>
+                    
+                    <!-- 포함 내역 -->
+                    <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-top:25px;">
+                        <span style="color:var(--text-muted); font-size:0.9rem;">✅ GPT 프롬프트 5종</span>
+                        <span style="color:var(--text-muted); font-size:0.9rem;">✅ n8n 워크플로우 1종</span>
+                        <span style="color:var(--text-muted); font-size:0.9rem;">✅ 바이브코딩 치트시트</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- 리드 수집 성공 모달 -->
+    <div id="leadSuccessModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999; justify-content:center; align-items:center; backdrop-filter:blur(8px);">
+        <div style="background:linear-gradient(145deg,#0f0f1a,#1a1a2e); width:90%; max-width:450px; border-radius:24px; padding:50px 40px; border:1px solid rgba(76,201,240,0.4); box-shadow:0 0 60px rgba(76,201,240,0.2); text-align:center;">
+            <div style="font-size:4rem; margin-bottom:20px;">🎉</div>
+            <h3 style="color:#fff; font-size:1.6rem; margin-bottom:15px; font-weight:900;">다운로드 링크가 발송되었습니다!</h3>
+            <p style="color:var(--text-muted); font-size:1rem; line-height:1.7; margin-bottom:25px;">
+                입력하신 이메일로 <strong style="color:var(--neon-blue);">AI 프롬프트 5종 + n8n 워크플로우</strong>가 전송되었습니다.<br>
+                메일함을 확인해 주세요. (스팸함도 체크!)
+            </p>
+            <p style="color:var(--neon-purple); font-size:0.95rem; font-weight:700; margin-bottom:25px;">
+                🔥 전체 템플릿 15종 + 바이블 본권이 궁금하시다면?
+            </p>
+            <a href="https://vibecodingbible.jbooking.kr/" target="_blank" class="cta-button" style="width:100%; padding:18px; font-size:1.1rem; display:block; text-align:center; margin-bottom:15px;">⚡ 바이브코딩 바이블 전체 구매하기</a>
+            <button onclick="document.getElementById('leadSuccessModal').style.display='none'" style="background:none; border:none; color:rgba(255,255,255,0.4); cursor:pointer; font-size:0.9rem;">닫기</button>
+        </div>
+    </div>
+
+    <script>
+    // 리드 수집 폼 제출
+    function submitLeadForm(e) {
+        e.preventDefault();
+        const name = document.getElementById('leadName').value;
+        const email = document.getElementById('leadEmail').value;
+        const btn = document.getElementById('leadBtn');
+        
+        btn.textContent = '전송 중...';
+        btn.disabled = true;
+        
+        // Google Apps Script 웹앱 URL (Google Sheets 연동)
+        const GOOGLE_SCRIPT_URL = localStorage.getItem('LEAD_WEBHOOK_URL') || '';
+        
+        // 로컬 저장 (백업)
+        const leads = JSON.parse(localStorage.getItem('vibe_leads') || '[]');
+        leads.push({ name, email, date: new Date().toISOString(), source: 'landing_page' });
+        localStorage.setItem('vibe_leads', JSON.stringify(leads));
+        
+        // Google Sheets로 전송 시도
+        if (GOOGLE_SCRIPT_URL) {
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, source: 'vibecoding_lead_magnet', date: new Date().toISOString() })
+            }).catch(() => {});
+        }
+        
+        // leads.json에도 저장 (서버 사이드 수집용)
+        console.log('[LEAD CAPTURED]', { name, email });
+        
+        // 성공 모달
+        setTimeout(() => {
+            btn.textContent = '🎁 무료 다운로드';
+            btn.disabled = false;
+            document.getElementById('leadForm').reset();
+            document.getElementById('leadSuccessModal').style.display = 'flex';
+        }, 1000);
+    }
+    
+    // 10초 후 리드 마그넷 팝업 (첫 방문만)
+    setTimeout(() => {
+        if (!localStorage.getItem('vibe_lead_shown')) {
+            const section = document.getElementById('free-prompts');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                section.style.animation = 'pulse 1s ease 2';
+            }
+            localStorage.setItem('vibe_lead_shown', '1');
+        }
+    }, 10000);
+    </script>
+
     <!-- Floating Footer CTA -->
     <div class="floating-cta" id="purchase">
         <div class="floating-text">

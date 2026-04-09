@@ -1,0 +1,16 @@
+[
+  {
+    "name": "테스트대표",
+    "email": "test@vibecoding.kr",
+    "registered": "2026-04-09T20:02:49.907224",
+    "last_sequence": 1,
+    "converted": false
+  },
+  {
+    "name": "클로드코딩",
+    "email": "claude@demo.kr",
+    "registered": "2026-04-09T20:02:50.432950",
+    "last_sequence": 1,
+    "converted": false
+  }
+]

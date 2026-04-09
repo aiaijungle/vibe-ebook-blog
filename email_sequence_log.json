@@ -1,0 +1,14 @@
+{
+  "test@vibecoding.kr": {
+    "day_1": {
+      "sent": "2026-04-09T20:02:59.104076",
+      "success": false
+    }
+  },
+  "claude@demo.kr": {
+    "day_1": {
+      "sent": "2026-04-09T20:02:59.104076",
+      "success": false
+    }
+  }
+}
