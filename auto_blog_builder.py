@@ -82,7 +82,7 @@ def generate_blog_html(ebook_context, naver_context, chosen_topic):
     1. 디자인은 화려한 글래스모피즘(Glassmorphism) 다크 테마 HTML 코드로 작성 (css포함).
     2. 시맨틱 태그(article, h1, h2, h3, ul, li) 적극 활용 및 **Q&A 형식 포맷팅**.
     3. **전자책 내용과 블로그 동향을 융합하여 작성하고, 본문 중간에 반드시 [가슴 뛰는 리얼 독자 후기 ★★★★★] 섹션을 만들어 2~3명의 리얼하고 감동적인 가상 후기(예: '3천만원 견적받고 포기하려다 어젯밤 직접 서버 올렸습니다' 등)를 인용구(blockquote) 형태로 시각적으로 매우 돋보이게 추가하세요.**
-    4. 📌 **매우 중요**: 글 하단(또는 중간중간 적절한 곳)에 반드시 **"바이브코딩 1권 즉시 열람하기"** 버튼을 크고 화려한 CTA 버튼 디자인으로 넣어주세요. (링크 주소: https://aiaijungle.github.io/vibe-ebook/)
+    4. **매우 중요**: 글 하단(또는 중간중간 적절한 곳)에 반드시 **"바이브코딩 바이블 즉시 구매하기"** 버튼을 크고 화려한 CTA 버튼 디자인으로 넣어주세요. (링크 주소: https://vibecodingbible.jbooking.kr/)
     5. 📌 **매우 중요**: 생성되는 HTML의 `<head>` 안에는 SEO/AEO 최적화를 위해 완벽한 title, meta description 태그를 넣고, 구글 태그(GDN) 코드도 포함해주세요: `<script async src="https://www.googletagmanager.com/gtag/js?id=AW-987654321"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){{dataLayer.push(arguments);}} gtag('js', new Date()); gtag('config', 'AW-987654321');</script>`
     6. 📌 **매우 중요**: 본문 곳곳에(최상단, 본문 중간, 하단 등) **"현재 작성 중인 내용({chosen_topic}, AI, 프로그래밍 등)과 완벽히 일치하는"** 이미지를 **총 4장** 삽입해주세요. `<img src="https://image.pollinations.ai/prompt/핵심을_나타내는_영어단어?width=800&height=400&nologo=true" alt="이미지 설명" style="width:100%; max-height:400px; object-fit:cover; border-radius:16px; margin: 2rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />` 형식을 써서 실시간 생성되게 하세요. (예: `https://image.pollinations.ai/prompt/Hacker%20Coding%20AI%20Screen?width=800&height=400&nologo=true`)
     7. 반드시 ```html 코드블럭으로만 출력.
