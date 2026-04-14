@@ -387,26 +387,15 @@
 
     <script>
     // 리드 수집 폼 처리
-    document.getElementById('lead-capture-form').addEventListener('submit', async function(e) {
+    document.getElementById('lead-capture-form').addEventListener('submit', function(e) {
         e.preventDefault();
         const name = this.querySelector('input[type="text"]').value;
         const email = this.querySelector('input[type="email"]').value;
 
-        // formsubmit.co로 이메일 발송
-        try {
-            await fetch('https://formsubmit.co/ajax/housepeoplekorea@gmail.com', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({
-                    '이름': name,
-                    '이메일': email,
-                    '경로': '전자책_마케팅_블로그_무료가이드',
-                    '_subject': '[바이브코딩 리드] 무료 가이드 신청 — ' + email,
-                    '_captcha': 'false',
-                    '_template': 'table'
-                })
-            });
-        } catch(err) { console.warn('formsubmit 오류', err); }
+        // mailto로 이메일 발송
+        const subject = encodeURIComponent('[바이브코딩 리드] 무료 가이드 신청 — ' + email);
+        const body = encodeURIComponent('■ 이름: ' + name + '\n■ 이메일: ' + email + '\n■ 경로: 전자책_마케팅_블로그_무료가이드');
+        window.open('mailto:housepeoplekorea@gmail.com?subject=' + subject + '&body=' + body);
 
         // 로컬 백업
         const leads = JSON.parse(localStorage.getItem('vibecoding_leads') || '[]');
@@ -1042,21 +1031,10 @@
         btn.textContent = '전송 중...';
         btn.disabled = true;
         
-        // formsubmit.co로 이메일 발송
-        try {
-            await fetch('https://formsubmit.co/ajax/housepeoplekorea@gmail.com', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({
-                    '이름': name,
-                    '이메일': email,
-                    '경로': '전자책_마케팅_블로그_하단폼',
-                    '_subject': '[바이브코딩 리드] 무료 다운로드 신청 — ' + email,
-                    '_captcha': 'false',
-                    '_template': 'table'
-                })
-            });
-        } catch(err) { console.warn('formsubmit 오류', err); }
+        // mailto로 이메일 발송
+        const subject = encodeURIComponent('[바이브코딩 리드] 무료 다운로드 신청 — ' + email);
+        const body = encodeURIComponent('■ 이름: ' + name + '\n■ 이메일: ' + email + '\n■ 경로: 전자책_마케팅_블로그_하단폼');
+        window.open('mailto:housepeoplekorea@gmail.com?subject=' + subject + '&body=' + body);
 
         // 로컬 저장 (백업)
         const leads = JSON.parse(localStorage.getItem('vibe_leads') || '[]');
