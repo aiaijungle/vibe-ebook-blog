@@ -387,12 +387,28 @@
 
     <script>
     // 리드 수집 폼 처리
-    document.getElementById('lead-capture-form').addEventListener('submit', function(e) {
+    document.getElementById('lead-capture-form').addEventListener('submit', async function(e) {
         e.preventDefault();
         const name = this.querySelector('input[type="text"]').value;
         const email = this.querySelector('input[type="email"]').value;
-        
-        // 리드 저장 (localStorage + 콘솔 로그)
+
+        // formsubmit.co로 이메일 발송
+        try {
+            await fetch('https://formsubmit.co/ajax/housepeoplekorea@gmail.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    '이름': name,
+                    '이메일': email,
+                    '경로': '전자책_마케팅_블로그_무료가이드',
+                    '_subject': '[바이브코딩 리드] 무료 가이드 신청 — ' + email,
+                    '_captcha': 'false',
+                    '_template': 'table'
+                })
+            });
+        } catch(err) { console.warn('formsubmit 오류', err); }
+
+        // 로컬 백업
         const leads = JSON.parse(localStorage.getItem('vibecoding_leads') || '[]');
         leads.push({ name, email, date: new Date().toISOString() });
         localStorage.setItem('vibecoding_leads', JSON.stringify(leads));
@@ -1017,7 +1033,7 @@
 
     <script>
     // 리드 수집 폼 제출
-    function submitLeadForm(e) {
+    async function submitLeadForm(e) {
         e.preventDefault();
         const name = document.getElementById('leadName').value;
         const email = document.getElementById('leadEmail').value;
@@ -1026,25 +1042,26 @@
         btn.textContent = '전송 중...';
         btn.disabled = true;
         
-        // Google Apps Script 웹앱 URL (Google Sheets 연동)
-        const GOOGLE_SCRIPT_URL = localStorage.getItem('LEAD_WEBHOOK_URL') || '';
-        
+        // formsubmit.co로 이메일 발송
+        try {
+            await fetch('https://formsubmit.co/ajax/housepeoplekorea@gmail.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    '이름': name,
+                    '이메일': email,
+                    '경로': '전자책_마케팅_블로그_하단폼',
+                    '_subject': '[바이브코딩 리드] 무료 다운로드 신청 — ' + email,
+                    '_captcha': 'false',
+                    '_template': 'table'
+                })
+            });
+        } catch(err) { console.warn('formsubmit 오류', err); }
+
         // 로컬 저장 (백업)
         const leads = JSON.parse(localStorage.getItem('vibe_leads') || '[]');
         leads.push({ name, email, date: new Date().toISOString(), source: 'landing_page' });
         localStorage.setItem('vibe_leads', JSON.stringify(leads));
-        
-        // Google Sheets로 전송 시도
-        if (GOOGLE_SCRIPT_URL) {
-            fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, source: 'vibecoding_lead_magnet', date: new Date().toISOString() })
-            }).catch(() => {});
-        }
-        
-        // leads.json에도 저장 (서버 사이드 수집용)
         console.log('[LEAD CAPTURED]', { name, email });
         
         // 성공 모달
