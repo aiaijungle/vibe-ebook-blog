@@ -1491,5 +1491,48 @@
 
         window.addEventListener('DOMContentLoaded', renderBlogs);
     </script>
+
+    <!-- ═══ Exit-Intent Popup (이탈 방지) ═══ -->
+    <div id="exit-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(6px); z-index:99999; justify-content:center; align-items:center;">
+        <div style="background:linear-gradient(145deg, #1a1a2e, #0f0f23); border:2px solid rgba(139,92,246,0.4); border-radius:24px; padding:50px 40px; max-width:500px; width:90%; text-align:center; position:relative; box-shadow:0 25px 60px rgba(0,0,0,0.8); animation: popIn 0.4s ease;">
+            <button onclick="document.getElementById('exit-popup').style.display='none'" style="position:absolute;top:15px;right:20px;background:none;border:none;color:#666;font-size:1.5rem;cursor:pointer;">&times;</button>
+            <div style="font-size:3rem; margin-bottom:15px;">⏳</div>
+            <h3 style="color:white; font-size:1.5rem; margin-bottom:10px; font-weight:800;">잠깐! 이대로 가시면<br>후회하실 수 있습니다</h3>
+            <p style="color:#8b8fa3; font-size:0.95rem; line-height:1.7; margin-bottom:24px;">바이브코딩 시작 전 반드시 알아야 할<br><strong style="color:#c4b5fd;">핵심 원칙 5가지</strong>를 무료로 가져가세요</p>
+            <div style="background:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.3); border-radius:12px; padding:16px; margin-bottom:20px; text-align:left;">
+                <p style="color:#e0e0e0; font-size:0.85rem; margin:0; line-height:1.8;">
+                    ✅ AI에게 지시하는 CIF 공식<br>
+                    ✅ 실제 수익 사례 (8개월 2,400만원)<br>
+                    ✅ 초보가 피해야 할 4대 실수<br>
+                    ✅ 첫 30일 학습 로드맵
+                </p>
+            </div>
+            <a href="#" onclick="document.getElementById('exit-popup').style.display='none'; document.getElementById('lead-form-modal').style.display='flex'; return false;" style="display:inline-block; padding:16px 40px; background:linear-gradient(135deg,#8b5cf6,#6366f1); color:white; font-weight:800; font-size:1.1rem; border-radius:12px; text-decoration:none; box-shadow:0 8px 25px rgba(139,92,246,0.5);">무료 가이드 받기 →</a>
+            <p style="color:#444; font-size:0.75rem; margin-top:16px; cursor:pointer;" onclick="document.getElementById('exit-popup').style.display='none'">괜찮습니다, 다음에 볼게요</p>
+        </div>
+    </div>
+    <style>
+        @keyframes popIn { from { transform: scale(0.8); opacity:0; } to { transform: scale(1); opacity:1; } }
+    </style>
+    <script>
+    // Exit-Intent 감지 (세션당 1회)
+    (function() {
+        var shown = false;
+        document.addEventListener('mouseout', function(e) {
+            if (shown) return;
+            if (e.clientY < 5 && e.relatedTarget == null) {
+                // 5초 이상 체류한 경우에만
+                if (performance.now() > 5000) {
+                    document.getElementById('exit-popup').style.display = 'flex';
+                    shown = true;
+                    // GA4 이벤트
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'exit_intent_shown', { event_category: 'engagement' });
+                    }
+                }
+            }
+        });
+    })();
+    </script>
 </body>
 </html>
