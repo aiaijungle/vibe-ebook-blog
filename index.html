@@ -392,15 +392,14 @@
         const name = this.querySelector('input[type="text"]').value;
         const email = this.querySelector('input[type="email"]').value;
 
-        // formsubmit.co로 리드 전송
-        fetch('https://formsubmit.co/ajax/ceo@stayjanda.com', {
+        fetch('https://aitf-api.onrender.com/contact', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                _subject: '[바이브코딩 리드] 무료 가이드 신청 — ' + email,
-                이름: name,
-                이메일: email,
-                경로: '전자책_마케팅_블로그_무료가이드'
+                name: name,
+                email: email,
+                subject: '[바이브코딩 리드] 무료 가이드 신청 — ' + email,
+                source: '전자책_마케팅_블로그_무료가이드'
             })
         }).catch(function() {});
 
@@ -1038,15 +1037,14 @@
         btn.textContent = '전송 중...';
         btn.disabled = true;
         
-        // formsubmit.co로 리드 전송
-        fetch('https://formsubmit.co/ajax/ceo@stayjanda.com', {
+        fetch('https://aitf-api.onrender.com/contact', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                _subject: '[바이브코딩 리드] 무료 다운로드 신청 — ' + email,
-                이름: name,
-                이메일: email,
-                경로: '전자책_마케팅_블로그_하단폼'
+                name: name,
+                email: email,
+                subject: '[바이브코딩 리드] 무료 다운로드 신청 — ' + email,
+                source: '전자책_마케팅_블로그_하단폼'
             })
         }).catch(function() {});
 
