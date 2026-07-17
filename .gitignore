@@ -1,3 +1,27 @@
+# 환경변수 / 시크릿
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+token.json
+service_account.json
+client_secret*.json
+
+# Python / Node
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
 # Obsidian: user-specific window state / trash, not shared config
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
